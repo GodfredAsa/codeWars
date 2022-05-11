@@ -4,24 +4,17 @@ import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-
 import java.util.stream.Collectors;
 
 public class PersonsMain {
     public static void main(String[] args) {
-
-
         Scanner addressSearch = new Scanner(System.in);
         Scanner nameSearch = new Scanner(System.in);
-
         try {
-
             System.out.print("Enter Address: ");
             String getAddress = addressSearch.nextLine();
-
             System.out.print("Enter name: ");
             String getName = nameSearch.nextLine();
-
 
             List<Person> filterByNameAndAddress =
                     getPersons()
@@ -31,30 +24,20 @@ public class PersonsMain {
                                     f.getName().contains(getName.toUpperCase()) )
                             .sorted(Comparator.comparing(Person::getName))
                             .collect(Collectors.toList());
-
-            filterByNameAndAddress
-                    .stream()
+            filterByNameAndAddress.stream()
                     .map(person ->  person.getId() + " => " +
                             person.getName() + " " +
                             person.getMobileNumber() + " " +
                             person.getAddress())
                     .forEach(System.out::println);
         }
-
         catch (InputMismatchException e) {
             System.out.println("Exception: "  + e);
         }
-
-
         finally {
-
             System.out.println("Done ...");
         }
-
-
-
     }
-
 
   private static List<Person> getPersons(){
         return List.of(

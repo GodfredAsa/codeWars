@@ -46,8 +46,6 @@ public class Main {
     }
 
 
-
-
     static String goodBad(String[] x){
         String realState = "";
         int nGood = (int) Arrays.stream(x)
@@ -61,7 +59,6 @@ public class Main {
        }
        return realState;
     }
-
 
 
     static int bitCounter(int n){
@@ -87,20 +84,16 @@ public class Main {
     }
 
 
-
-
     public static String getInitialsOfName(String name){
         return  name.split(" ")[0].substring(0,1).toUpperCase() + "." +
                 name.split(" ")[1].substring(0,1).toUpperCase();
     }
 
 
-
     public static int dutyFree(int normPrice, int discount, int hol) {
         int savings = (normPrice * discount) / 100;
         return hol /savings;
     }
-
 
 
     static String correct(String str){
