@@ -1,11 +1,9 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CodePairing {
 
@@ -20,6 +18,10 @@ public class CodePairing {
         System.out.println(getEvenNumbers(numbers));
 
         System.out.println( "Love repeats: " + getWordRecursion("love","I love love love Love things"));
+
+        System.out.println("----------------------------");
+
+        findIt(new int[]{1,1,1,1,1,1,10,1,1,1,1});
 
     }
 
@@ -57,7 +59,7 @@ public class CodePairing {
         for(int i = 1; i <= number; i++) {
             if(number % i == 0) factors.add(i);
         }
-      factors.forEach(System.out::println); // prints the factors of the number
+      factors.forEach(System.out::println);
         return factors.size() <= 2;
     }
 
@@ -71,42 +73,32 @@ public class CodePairing {
     void shouldCheckIfIsPrimeTest(){
         assertAll( () -> {
             assertFalse(isPrimeNumber(10), "is not prime");
-           Assertions.assertTrue(isPrimeNumber(5), "is prime");
-            Assertions.assertTrue( isPrimeNumber(7), "is prime");
+           assertTrue(isPrimeNumber(5), "is prime");
+            assertTrue( isPrimeNumber(7), "is prime");
         });
     }
 
+    public static void findIt(int[] a) {
+        int odd = 0;
+        int count = 0;
+        for (int number: a) {
+            for(int i = 0; i < a.length; i++) {
+                if(number == a[i]){
+                    count++;
+                }
 
+            }
+        }
 
+//        Integer
+        System.out.println(count);
 
+//        System.out.println(odd);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//        return odd;
+    }
 
 }
-
-//For this challenge, the input is a string of words,
-// and the output should be the words in reverse but with the letters in the original order.
-// For example, the string “Dog bites man” should output as “man bites Dog.”
-//
-// After you’ve solved this challenge, try adding sentence capitalization and
-// punctuation to your code. So, the string “Coding is the best!” should output as
-// “Best the is Coding!”
 
 
 

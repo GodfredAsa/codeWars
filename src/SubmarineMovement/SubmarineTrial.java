@@ -1,6 +1,5 @@
 package SubmarineMovement;
 import java.util.Arrays;
-import java.util.function.Function;
 
 public class SubmarineTrial {
 

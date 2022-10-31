@@ -1,16 +1,11 @@
 package com.company.DataStructures;
-
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import static java.util.Arrays.stream;
 
 
 public class LinkedListDemo {
-
-
 
     public static void main(String[] args) {
 
@@ -98,7 +93,7 @@ public class LinkedListDemo {
               returnString  = "";
           }else{
               sbf.append(s.charAt(0));
-              String filteredString =  Arrays.stream(Stream.of(sbf).toArray())
+              String filteredString =  stream(Stream.of(sbf).toArray())
                       .map(o -> o.toString().replaceAll("[oO]","0"))
                       .map(i-> i.replaceAll("[iI]","1"))
                       .map(t-> t.replaceAll("[sS]","5"))
@@ -120,6 +115,5 @@ public class LinkedListDemo {
 */
       return returnString;
     }
-
 
 }
