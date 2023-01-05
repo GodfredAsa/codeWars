@@ -6,26 +6,6 @@ import java.util.function.Function;
 public class Main {
 
     public static void main(String[] args) {
-////        sample while loop code basic
-//        char[] letters = {'a', 'b', 'c', 'd'};
-//        int index = 0;
-//        while (index < letters.length) {
-//            if (index % 2 == 0) {
-//                System.out.println(letters[index]);
-//            }
-//            index++;
-//        }
-//
-//        System.out.println("do while loop code ");
-//        int doIndex = 0;
-//        do {
-//            if (doIndex % 2 == 0) {
-//                System.out.println(letters[doIndex]);
-//            }
-//            doIndex++;
-//        }
-//        while (doIndex < letters.length);
-
         Submarine submarine = new Submarine();
         submarine.setDepth(199);
         System.out.println(submarine.getMeasurement(199));

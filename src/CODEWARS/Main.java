@@ -1,6 +1,7 @@
 package CODEWARS;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,7 +10,18 @@ public class Main {
 
         System.out.println( "Sum All functions: " + sumAll(new int[]{1,2,3,4,5}));
 
+        System.out.println("1 :" + isValidDayOfMonth("1"));
+        System.out.println("11:" +isValidDayOfMonth("11"));
+        System.out.println("01:" +isValidDayOfMonth("01"));
+        System.out.println("28:" +isValidDayOfMonth("28"));
+        System.out.println("29:" +isValidDayOfMonth("29"));
 
+
+
+    }
+    private static boolean isValidDayOfMonth(String dayOfMonth){
+        Pattern datePattern =  Pattern.compile("^([1-9]|1[1-9]|2[0-8])$");
+        return datePattern.matcher(dayOfMonth).matches();
     }
 
 
