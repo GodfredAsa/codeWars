@@ -6,15 +6,19 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static org.junit.Assert.assertEquals;
+
 public class TwoSum {
     public static void main(String[] args) {
-        int[] test = {2,7,8,5};
-        int target = 15;
-        System.out.println(Arrays.toString(testTwoSum(test, target)));
+//        int[] test = {2,7,8,5};
+//        int target = 15;
+//        System.out.println(Arrays.toString(testTwoSum(test, target)));
+//
+//        TwoSum t = new TwoSum();
+//        t.getMatchString("I am learning Python, for python is a good programming language");
+//        System.out.println(removeDuplicate(new int[]{2,3,3,4,5,6,9,9}));
 
-        TwoSum t = new TwoSum();
-        t.getMatchString("I am learning Python, for python is a good programming language");
-        System.out.println(removeDuplicate(new int[]{2,3,3,4,5,6,9,9}));
+//        System.out.println(findTemperature(new int[]{1, 10, 100, -30}));
 
 //        System.out.println(Arrays.toString(pairWithTargetSum(new int[]{1, 2, 3, 4, 5, 6, 7}, 13)));
 //        System.out.println(Arrays.toString(pairWithTargetSum(new int[]{1, 2, 3, 4, 5, 6, 7}, 10)));
@@ -123,6 +127,41 @@ public class TwoSum {
         Assertions.assertAll(
                 () -> Assertions.assertEquals(expected, actual),
                 () -> Assertions.assertNull(new TwoSum().getMatchString(""))
+        );
+    }
+
+    /**
+     *
+     * Given a list of +ve and -ve numbers
+     * Find the number that's closest to zero
+     */
+    private int findTemperature(int[] arr){
+
+        if(arr.length == 0) return 0;
+        if(arr.length == 1) return arr[0];
+
+        int closestToZero = 0;
+
+        for (int j : arr) {
+            if (closestToZero == 0) {
+                closestToZero = j;
+            } else if (j > 0 && j <= Math.abs(closestToZero)) {
+                closestToZero = j;
+            } else if (j < 0 && -j < Math.abs(closestToZero)) {
+                closestToZero = j;
+            }
+        }
+        return closestToZero;
+
+    }
+
+    @Test
+    void testFindTemperature(){
+
+        Assertions.assertAll(
+                () -> assertEquals(0, findTemperature(new int[]{})),
+                () -> assertEquals(45, findTemperature(new int[]{45})),
+                () -> assertEquals(1, findTemperature(new int[]{1, 10, 100, -30}))
         );
     }
 }
